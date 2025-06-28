@@ -175,6 +175,7 @@ class APIs {
     }
   }
 
+
   static Stream<QuerySnapshot<Map<String, dynamic>>> getUserInfo(ChatUser chatUser) {
     return firestore.collection('users').where('id', isEqualTo: chatUser.id).snapshots();
   }
@@ -242,6 +243,19 @@ class APIs {
       log('Image upload failed');
     }
   }
+  static Future<void> sendChatVideo(ChatUser chatUser, File file) async {
+    final videoUrl = await CloudinaryService.uploadVideo(
+      file,
+      folder: 'chat_videos/${getConversationID(chatUser.id)}',
+    );
+
+    if (videoUrl.isNotEmpty) {
+      await sendMessage(chatUser, videoUrl, Type.video);
+    } else {
+      log('Video upload failed');
+    }
+  }
+
 
   static Future<void> deleteMessage(Message message) async {
     await firestore
