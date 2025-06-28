@@ -1,5 +1,5 @@
-name: we_chat
-description: "A Chatting App Developed by Harsh H. Rajpurohit (Google Me)"
+name: Disco_Chat
+description: "Chatting App Powered By GC University GCUFLC"
 publish_to: "none"
 version: 1.0.2+2
 
@@ -35,19 +35,20 @@ dependencies:
   firebase_storage: ^12.3.7
 
   # For showing Emojis
-  emoji_picker_flutter: ^3.1.0
+  emoji_picker_flutter: ^4.3.0
 
   # For accessing firebase messaging (Push Notification)
   firebase_messaging: ^15.1.6
 
   # Bearer Token for Push Notification
-  googleapis_auth: ^1.6.0
+  googleapis_auth: ^2.0.0
 
   # For calling RestAPIs
   http: ^1.2.2
 
   # For creating notification channel
   flutter_notification_channel: ^3.1.0
+
 
   # For storing images into gallery
   # gallery_saver_updated: ^3.0.0

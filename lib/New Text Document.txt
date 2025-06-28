@@ -1,0 +1,2 @@
+com.harshRajpurohit.weChat
+com.example.disco_chat

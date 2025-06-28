@@ -214,7 +214,7 @@ class _MessageCardState extends State<MessageCard> {
                         try {
                           log('Image Url: ${widget.message.msg}');
                           await GallerySaver.saveImage(widget.message.msg,
-                                  albumName: 'We Chat')
+                                  albumName: 'Disco Chat')
                               .then((success) {
                             if (ctx.mounted) {
                               //for hiding bottom sheet

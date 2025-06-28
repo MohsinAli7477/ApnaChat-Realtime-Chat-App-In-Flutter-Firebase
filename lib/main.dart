@@ -1,28 +1,31 @@
 import 'dart:developer';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notification_channel/flutter_notification_channel.dart';
-import 'package:flutter_notification_channel/notification_importance.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'firebase_options.dart';
 import 'screens/splash_screen.dart';
 
-//global object for accessing device screen size
+
+import 'dart:io' show Platform;
+import 'package:flutter_notification_channel/flutter_notification_channel.dart';
+import 'package:flutter_notification_channel/notification_importance.dart';
+
+
 late Size mq;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  //enter full-screen
+  // Enter full-screen
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   await _initializeFirebase();
 
-  //for setting orientation to portrait only
+  // Set orientation to portrait only
   SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
       .then((value) {
     runApp(const MyApp());
   });
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'We Chat',
+        title: 'Disco Chat',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             useMaterial3: false,
@@ -55,11 +58,13 @@ class MyApp extends StatelessWidget {
 Future<void> _initializeFirebase() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  var result = await FlutterNotificationChannel().registerNotificationChannel(
-      description: 'For Showing Message Notification',
-      id: 'chats',
-      importance: NotificationImportance.IMPORTANCE_HIGH,
-      name: 'Chats');
+  if (!kIsWeb && Platform.isAndroid) {
+    var result = await FlutterNotificationChannel().registerNotificationChannel(
+        description: 'For Showing Message Notification',
+        id: 'chats',
+        importance: NotificationImportance.IMPORTANCE_HIGH,
+        name: 'Chats');
 
-  log('\nNotification Channel Result: $result');
+    log('\nNotification Channel Result: $result');
+  }
 }

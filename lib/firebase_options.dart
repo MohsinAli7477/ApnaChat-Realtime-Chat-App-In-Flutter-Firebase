@@ -22,8 +22,6 @@ class DefaultFirebaseOptions {
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      case TargetPlatform.iOS:
-        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -47,31 +45,22 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBeszZHLYJNyjUhpujMH9yZ4ol9JqsAmPU',
-    appId: '1:288842837392:android:1353619813061d867a5715',
-    messagingSenderId: '288842837392',
-    projectId: 'we-chat-75f13',
-    storageBucket: 'we-chat-75f13.appspot.com',
+    apiKey: 'AIzaSyAw8naOa22NxxAEAWDPPBXS31ThJrRBYFA',
+    appId: '1:442546361632:android:385c838626734e5e05f345',
+    messagingSenderId: '442546361632',
+    projectId: 'disco-chat-bc2eb',
+    storageBucket: 'disco-chat-bc2eb.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCCYZoZ5DvuitZJ7qK5iWM3ARHBDoFFriY',
-    appId: '1:288842837392:ios:f39c8dc31525a6687a5715',
-    messagingSenderId: '288842837392',
-    projectId: 'we-chat-75f13',
-    storageBucket: 'we-chat-75f13.appspot.com',
-    androidClientId: '288842837392-gse3j6u9fferoav9leh2ik3468asfeup.apps.googleusercontent.com',
-    iosClientId: '288842837392-sgib97u6439i4jte3bo19u00fh663euu.apps.googleusercontent.com',
-    iosBundleId: 'com.harshRajpurohit.weChat',
-  );
+  
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBW-1MjB067GUwQHPnYmWkr_4iMz13UgRs',
-    appId: '1:288842837392:web:6ae5bafc6d7d4f407a5715',
-    messagingSenderId: '288842837392',
-    projectId: 'we-chat-75f13',
-    authDomain: 'we-chat-75f13.firebaseapp.com',
-    storageBucket: 'we-chat-75f13.appspot.com',
+    apiKey: 'AIzaSyALJD5rDMyQVr50IrmQW9QeKg5DPqV_X1M',
+    appId: '1:442546361632:web:54d48e567eb811aa05f345',
+    messagingSenderId: '442546361632',
+    projectId: 'disco-chat-bc2eb',
+    authDomain: 'disco-chat-bc2eb.firebaseapp.com',
+    storageBucket: 'disco-chat-bc2eb.firebasestorage.app',
   );
 
 }
